@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Background Change</title>
+        <link rel="stylesheet" type="text/css" href="backgroound.css">
+    </head>
+
+    <body>
+        <button id="btn1">Click me!</button>
+
+        <script>
+            const btn1 = document.getElementById('btn1');
+            let randColor;
+            btn1.addEventListener('click', function onClick(event) {
+                randColor = Math.floor(Math.random()*16777215).toString(16);
+                document.body.style.backgroundColor = "#"  + randColor;
+            })
+        </script>
+    </body>
+</html>

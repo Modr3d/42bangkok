@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Background Change</title>
+        <link rel="stylesheet" type="text/css" href="backgroound.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <button id="btn1">Click me!</button>
+
+        <!-- This is old js
+        <script>
+            const btn1 = document.getElementById('btn1');
+            let randColor;
+            btn1.addEventListener('click', function onClick(event) {
+                randColor = Math.floor(Math.random()*16777215).toString(16);
+                document.body.style.backgroundColor = "#"  + randColor;
+            })
+        </script>
+        -->
+        <script>
+            $(document).ready(function() {
+                $('#btn1').click(function() {
+                    var randColor = Math.floor(Math.random() * 16777215).toString(16);
+                    $('body').css('background-color', '#' + randColor);
+                });
+            });
+        </script>
+    </body>
+</html>

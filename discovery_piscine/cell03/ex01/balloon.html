@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balloon</title>
+    <style>
+        #balloon {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: red;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <script>
+        const balloon = document.getElementById('balloon');
+        let currentColor = 'red',currentWidth,currentHeight;
+
+        function changeColor() {
+            switch (currentColor) {
+                case 'red':
+                    currentColor = 'green';
+                    balloon.style.backgroundColor = 'green';
+                    break;
+                case 'green':
+                    currentColor = 'blue';
+                    balloon.style.backgroundColor = 'blue';
+                    break;
+                case 'blue':
+                    currentColor = 'red';
+                    balloon.style.backgroundColor = 'red';
+                    break;
+            }
+        }
+        balloon.addEventListener('click', () => {
+            if (balloon.offsetWidth > 420) {
+                changeColor();
+                balloon.style.width = '200px';
+                balloon.style.height = '200px';
+                return;
+            }
+
+            balloon.style.width = (balloon.offsetWidth + 10) + 'px';
+            balloon.style.height = (balloon.offsetHeight + 10) + 'px';
+
+            changeColor();
+        });
+
+        balloon.addEventListener('mouseleave', () => {
+            if (balloon.offsetWidth > 200) {
+                balloon.style.width = (balloon.offsetWidth - 5) + 'px';
+                balloon.style.height = (balloon.offsetHeight - 5) + 'px';
+
+                switch (currentColor) {
+                    case 'red':
+                        currentColor = 'blue';
+                        balloon.style.backgroundColor = 'blue';
+                        break;
+                    case 'green':
+                        currentColor = 'red';
+                        balloon.style.backgroundColor = 'red';
+                        break;
+                    case 'blue':
+                        currentColor = 'green';
+                        balloon.style.backgroundColor = 'green';
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

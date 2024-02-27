@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon</title>
+        <style>
+            #balloon {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: red;
+            cursor: pointer;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="balloon"></div>
+        <script>
+            $(document).ready(function() {
+                let currentColor = 'red';
+
+                function changeColor() {
+                    switch (currentColor) {
+                    case 'red':
+                        currentColor = 'green';
+                        $('#balloon').css('backgroundColor', 'green');
+                        break;
+                    case 'green':
+                        currentColor = 'blue';
+                        $('#balloon').css('backgroundColor', 'blue');
+                        break;
+                    case 'blue':
+                        currentColor = 'red';
+                        $('#balloon').css('backgroundColor', 'red');
+                        break;
+                    }
+                }
+
+                $('#balloon').click(function() {
+                    if ($(this).outerWidth() > 420) {
+                        changeColor();
+                        $(this).width(200).height(200);
+                        return;
+                    }
+
+                    $(this).width($(this).outerWidth() + 10).height($(this).outerHeight() + 10);
+                    changeColor();
+                });
+
+                $('#balloon').mouseleave(function() {
+                    if ($(this).outerWidth() > 200) {
+                    $(this).width($(this).outerWidth() - 5).height($(this).outerHeight() - 5);
+
+                    switch (currentColor) {
+                        case 'red':
+                        currentColor = 'blue';
+                        $(this).css('backgroundColor', 'blue');
+                        break;
+                        case 'green':
+                        currentColor = 'red';
+                        $(this).css('backgroundColor', 'red');
+                        break;
+                        case 'blue':
+                        currentColor = 'green';
+                        $(this).css('backgroundColor', 'green');
+                        break;
+                    }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

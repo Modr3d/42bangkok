@@ -1,0 +1,309 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Chakra Petch", sans-serif;
+    margin: 0;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    background: repeating-linear-gradient(to bottom,rgb(0, 0, 0), rgb(128, 128, 128));
+    color: white;
+}
+
+#mypic {
+    width: 300px;
+    height: 311px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mypic:hover {
+    transform: scale(1.2);
+}
+
+.sidebar .profilePic {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    margin-bottom: 0;
+}
+
+#bsereewa {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+  
+#bsereewa:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+ul {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.sidebar ul li {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar ul li #main {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+
+.social-icon a img {
+    transition: transform 0.3s ease-in-out;
+}
+  
+.social-icon a img:hover {
+    transform: scale(1.1);
+}
+
+.sidebar ul li #main:hover ,
+.sidebar ul li #person:hover ,
+.sidebar ul li #mail:hover ,
+.sidebar ul li #intra2:hover ,
+.sidebar ul li #top:hover ,
+.sidebar ul li #stat:hover {
+    color: red;
+}
+
+#chibi {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.content {
+    width: 100%;
+    overflow: auto;
+}
+
+.introduction,
+.about,
+.contact,
+.skill {
+    padding: 20px;
+}
+
+.about {
+    background-image: url('../pics/danheng.gif');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+}
+
+.contact {
+    background-image: url('../pics/space.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.introduction {
+    background-image: url('../pics/umbrellagirl.gif');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.skill {
+    background-image: url('../pics/japan.gif');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.introduction h1,
+.about h1,
+.contact h1, 
+.skill h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.introduction h1:hover,
+.about h1:hover,
+.contact h1:hover, 
+.skill h1:hover {
+    transform: scale(1.025);
+    color: red;
+}
+
+.introduction p,
+.aboutInfo,
+.contact p, 
+.skill p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.skill p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.aboutInfo {
+    margin-left: 10px;
+}
+
+.contact-location {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-location {
+    border: 3px solid white;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    background-color: rgba(128,128,128,0.5);
+}
+
+.info-location:hover {
+    transform: scale(1.1);
+}
+
+iframe {
+    transition: transform 0.3s ease-in-out;
+}
+
+iframe:hover {
+    transform: scale(1.1);
+}
+
+.contact-location p {
+    font-size: 16px;
+}
+
+.container {
+    width: 80%;
+    background-color: #ddd;
+    padding: 0 0 0 0;
+}
+
+.skills {
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.html {width: 1%; background-color: #04AA6D;}
+.css {width: 1%; background-color: #2196F3;}
+.js {width: 1%; background-color: #f44336;}
+.cpp {width: 1%; background-color: #808080;}
+.gaming {width: 100%; background-color: purple;}
+.python {width: 1%; background-color: #ddff6e;}
+.java {width: 1%; background-color: #ffbf00;}
+
+@keyframes wipe-enter {
+	0% {
+		transform: scale(0, .025);
+	}
+	50% {
+		transform: scale(1, .025);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .square-animation {
+      animation: wipe-enter 1s 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+.page {
+    flex-direction: row;
+}
+
+.sidebar {
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+}
+
+.content {
+    margin-left: 15%;
+    width: 85%;
+}
+
+.introduction,
+.about,
+.contact,
+.skill {
+    padding: 50px;
+}
+
+.introduction h1,
+.about h1,
+.contact h1,
+.skill h1 {
+    font-size: 48px;
+}
+
+.introduction p,
+.aboutInfo,
+.contact p,
+.skill p {
+    font-size: 20px;
+}
+
+#chibi {
+    width: 300px;
+    height: 300px;
+}
+}

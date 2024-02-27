@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>It's over 9000!</title>
+        <style>
+            .calculator {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+                width: 300px;
+                border: 1px solid #ccc;
+                padding: 20px;
+                border-radius: 5px;
+            }
+            .calculator input, .calculator select {
+                margin: 5px 0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                font-size: 16px;
+            }
+            .calculator button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .calculator button:hover {
+                background-color: #449d44;
+            }
+            #result {
+                font-size: 20px;
+                margin-top: 10px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" id="num1" placeholder="Enter a number">
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="text" id="num2" placeholder="Enter a number">
+            <button id="calculate">Try me!</button>
+            <p id="result"></p>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                const $num1 = $('#num1');
+                const $num2 = $('#num2');
+                const $operator = $('#operator');
+                const $calculateBtn = $('#calculate');
+                const $resultP = $('#result');
+
+                function useMeAlert() {
+                    alert("Please, use me...");
+                }
+
+                setInterval(useMeAlert, 30000);
+
+                $calculateBtn.click(function() {
+                    const num1Val = parseFloat($num1.val());
+                    const num2Val = parseFloat($num2.val());
+                    const selectedOperator = $operator.val();
+                    let result;
+                    $resultP.text('');
+
+                    if (isNaN(num1Val) || isNaN(num2Val) || num2Val < 0 || num1Val < 0) {
+                    alert("Error :(");
+                    $resultP.text("Error :(");
+                    return 0;
+                    }
+
+                    if ($resultP.text() !== "Error :(") {
+                    switch (selectedOperator) {
+                        case '+':
+                        result = num1Val + num2Val;
+                        break;
+                        case '-':
+                        result = num1Val - num2Val;
+                        break;
+                        case '*':
+                        result = num1Val * num2Val;
+                        break;
+                        case '/':
+                        if (num2Val === 0) {
+                            $resultP.text("It's over 9000!");
+                            console.log("It's over 9000!");
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        result = num1Val / num2Val;
+                        break;
+                        case '%':
+                        if (num2Val === 0) {
+                            $resultP.text("It's over 9000!");
+                            console.log("It's over 9000!");
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        result = num1Val % num2Val;
+                        break;
+                        default:
+                        $resultP.text('Error: Invalid operator.');
+                        return;
+                    }
+                    alert(result);
+                    $resultP.text(result);
+                    console.log(result);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
